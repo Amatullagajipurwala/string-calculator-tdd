@@ -12,4 +12,10 @@ public class StringCalculatorTest {
     void shouldReturnNumberWhenSingleNumber() {
         assertEquals(1, new StringCalculator().add("1"));
     }
+    @Test
+    void shouldReturnSumOfTwoCommaSeparatedNumbers() {
+        assertEquals(6, new StringCalculator().add("1,5"));
+    }
+
+
 }

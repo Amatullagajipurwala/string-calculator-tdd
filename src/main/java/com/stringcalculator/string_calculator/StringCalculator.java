@@ -2,9 +2,14 @@ package com.stringcalculator.string_calculator;
 
 public class StringCalculator {
     public int add(String numbers) {
-        if (numbers.isEmpty()) return 0;
-        return Integer.parseInt(numbers);
+        String[] tokens = numbers.split(",");
+        int sum = 0;
+        for (String token : tokens) {
+            sum += Integer.parseInt(token);
+        }
+        return sum;
 
     }
+
 
 }
