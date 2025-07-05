@@ -2,6 +2,7 @@ package com.stringcalculator.string_calculator;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     @Test
@@ -27,7 +28,16 @@ public class StringCalculatorTest {
     }
     @Test
     void shouldSupportCustomDelimiter() {
-        assertEquals(3, new StringCalculator().add("//;\n1;2"));
+        assertEquals(13, new StringCalculator().add("//;\n1;2;10"));
     }
+    @Test
+    void shouldThrowOnNegativeNumbers() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> new StringCalculator().add("1,-2,-3"));
+
+        assertEquals("negative numbers not allowed -2,-3", ex.getMessage());
+    }
+
+
 
 }
