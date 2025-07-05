@@ -38,6 +38,24 @@ public class StringCalculatorTest {
         assertEquals("negative numbers not allowed -2,-3", ex.getMessage());
     }
 
+    @Test
+    void shouldIgnoreNumbersGreaterThan1000() {
+        assertEquals(2, new StringCalculator().add("2,1001"));
+    }
 
+    @Test
+    void shouldSupportDelimiterOfAnyLength() {
+        assertEquals(6, new StringCalculator().add("//[***]\n1***2***3"));
+    }
+
+    @Test
+    void shouldSupportMultipleDelimiters() {
+        assertEquals(6, new StringCalculator().add("//[*][%]\n1*2%3"));
+    }
+
+    @Test
+    void shouldSupportMultipleDelimitersOfAnyLength() {
+        assertEquals(10, new StringCalculator().add("//[##][***]\n2##3***5"));
+    }
 
 }
