@@ -8,4 +8,8 @@ public class StringCalculatorTest {
     void shouldReturnZeroForEmptyString() {
         assertEquals(0, new StringCalculator().add(""));
     }
+    @Test
+    void shouldReturnNumberWhenSingleNumber() {
+        assertEquals(1, new StringCalculator().add("1"));
+    }
 }
